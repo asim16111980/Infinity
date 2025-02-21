@@ -3,12 +3,13 @@
 import { HTMLInputTypeAttribute } from "react";
 
 // StateStyles interface
-interface StateStyles   {
+interface StateStyles {
   enabled: string;
   hovered: string;
   focused: string;
   populated: string;
   disabled: string;
+  error: string;
 }
 
 // Input props interface
@@ -18,6 +19,7 @@ interface InputProps {
   type: HTMLInputTypeAttribute;
   parentStyle: string;
   stateStyles: StateStyles;
+  labelStyles: StateStyles;
   inputStyle: string;
 }
 
