@@ -1,8 +1,37 @@
+import { ButtonProps } from "../lib/definitions";
+import { useState } from "react";
 
-const Button = ({icon,value}) => {
+const Button = ({ type, icon, value, stateStyles }: ButtonProps) => {
+  const [ButtonStateStyles, setButtonStateStyles] = useState(
+    stateStyles.enabled
+  );
   return (
-      <button><span>{ icon}</span><span>{value }</span></button>
-  )
-}
+    <button className={`border-0 ${ButtonStateStyles}`}
+      type={type}
+      onMouseEnter={() => {
+        ButtonStateStyles == stateStyles.focused
+          ? ""
+          : setButtonStateStyles(stateStyles.hovered);
+      }}
+      onMouseLeave={() => {
+        ButtonStateStyles == stateStyles.focused
+          ? ""
+          : setButtonStateStyles(stateStyles.enabled);
+      }}
+      onFocus={() => {
+        setButtonStateStyles(stateStyles.focused);
+      }}
+      onBlur={() => {
+        setButtonStateStyles(stateStyles.enabled);
+      }}
+      onClick={() => {
+        setButtonStateStyles(stateStyles.pressed);
+      }}
+    >
+      {icon}
+      <span>{value}</span>
+    </button>
+  );
+};
 
-export default Button
+export default Button;

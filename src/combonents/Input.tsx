@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { InputProps } from "../lib/definitions";
+import { useState } from "react";
 
 const Input = ({ id, label, type, stateStyles }: InputProps) => {
   const [inputStateStyles, setInputStateStyles] = useState(stateStyles.enabled);

@@ -2,14 +2,14 @@
 
 import { HTMLInputTypeAttribute } from "react";
 
-// StateStyles interface
-interface StateStyles {
-  enabled: {parent:string,input:string,label:string};
-  hovered:{parent:string,input:string,label:string};
-  focused:{parent:string,input:string,label:string};
-  disabled:{parent:string,input:string,label:string};
-  success: {parent:string,input:string,label:string};
-  error: {parent:string,input:string,label:string};
+// Input State Styles interface
+interface InputStateStyles {
+  enabled: { parent: string; input: string; label: string };
+  hovered: { parent: string; input: string; label: string };
+  focused: { parent: string; input: string; label: string };
+  disabled: { parent: string; input: string; label: string };
+  success: { parent: string; input: string; label: string };
+  error: { parent: string; input: string; label: string };
 }
 
 // Input props interface
@@ -17,7 +17,23 @@ interface InputProps {
   id: string;
   label: string;
   type: HTMLInputTypeAttribute;
-  stateStyles: StateStyles;
+  stateStyles: InputStateStyles;
+}
+// Button State Styles interface
+interface ButtonStateStyles {
+  enabled: string;
+  hovered: string;
+  focused: string;
+  pressed: string;
+  disabled: string;
 }
 
-export type { InputProps };
+// Button props interface
+interface ButtonProps {
+  type: "button" | "submit";
+  icon?: string | React.ReactNode;
+  value: string;
+  stateStyles: ButtonStateStyles;
+}
+
+export type { InputProps, ButtonProps };
